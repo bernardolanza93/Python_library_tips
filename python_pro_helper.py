@@ -30,4 +30,5 @@ def check_folder(relative_path):
         logging1.info("The new directory is created! %s", str(path))
     else:
         logging1.info("directory ok:%s", str(path))
-
+print("percentile ", i , " : ", np.percentile(storage_data[i],5))
+print("percentile 5 ", i , " : ", np.percentile(storage_data[i], 95))
