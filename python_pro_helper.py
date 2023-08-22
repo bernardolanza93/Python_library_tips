@@ -32,3 +32,26 @@ def check_folder(relative_path):
         logging1.info("directory ok:%s", str(path))
 print("percentile ", i , " : ", np.percentile(storage_data[i],5))
 print("percentile 5 ", i , " : ", np.percentile(storage_data[i], 95))
+
+
+#decorator:
+
+
+def timeit(func):
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        processing_time = end_time - start_time
+        print(f"Processing time of {func.__name__}: {processing_time:.6f} seconds")
+        return result
+
+    return wrapper
+
+@timeit
+def do_something():
+    time.sleep(1)
+
+do_something()
+#expected decorator calculate 1 second of execution
+
